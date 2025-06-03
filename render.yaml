@@ -1,15 +1,3 @@
-services:
-  - type: web
-    name: smart-shopping-cart-api
-    env: node
-    buildCommand: npm install
-    startCommand: npm start
-    envVars:
-      - key: NODE_ENV
-        value: production
-      - key: MONGO_URI
-        sync: false
-      - key: JWT_SECRET
-        sync: false
-      - key: FRONTEND_URL
-        sync: false
+# This project is configured for deployment on Cyclic.sh
+# No special configuration file needed for Cyclic
+# Environment variables can be set in the Cyclic dashboard
