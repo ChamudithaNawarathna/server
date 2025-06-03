@@ -1,6 +1,6 @@
 {
   "install": "npm install",
-  "start": "npm start",
+  "start": "bash start.sh",
   "watch": {
     "ignore": [
       "node_modules"
@@ -10,5 +10,8 @@
         "^package\\.json$"
       ]
     }
+  },
+  "env": {
+    "NODE_VERSION": "16.20.0"
   }
 }
