@@ -8,13 +8,7 @@ const inventoryRoutes = require('../src/routes/inventory');
 
 const app = express();
 
-(async () => {
-  try {
-    await connectDB();
-  } catch (err) {
-    console.error('MongoDB connection error:', err);
-  }
-})();
+connectDB();
 
 app.use(cors({ origin: '*', credentials: true }));
 app.use(express.json());
