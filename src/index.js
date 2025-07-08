@@ -17,23 +17,14 @@ app.get('/', (req, res) => {
   res.json({ message: 'Welcome to Smart Shopping Cart API' });
 });
 
-// app.get('/api/test', (req, res) => {
-//   res.json({ message: 'API is working!' });
-// });
-// app.use('/api/auth', authRoutes);
-// app.use('/api/layouts', layoutRoutes);
-// app.use('/api/inventory', inventoryRoutes);
-
-app.get('/test', (req, res) => {
-  res.json({ message: 'API is working!' });
-});
-
+// This is the correct way to mount your API routes
 const apiRouter = express.Router();
 apiRouter.use('/auth', authRoutes);
 apiRouter.use('/layouts', layoutRoutes);
 apiRouter.use('/inventory', inventoryRoutes);
 
-app.use('/api', apiRouter);
+app.use('/api', apiRouter); // All routes under apiRouter will be prefixed with /api
+
 
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
