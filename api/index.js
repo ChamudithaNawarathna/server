@@ -10,6 +10,8 @@ const app = express();
 connectDB(); // Just call it, do not wrap in async IIFE
 
 app.use(cors({ origin: '*', credentials: true }));
+app.options('*', cors({ origin: '*', credentials: true })); // <-- Add this line
+
 app.use(express.json());
 
 app.get('/', (req, res) => {
