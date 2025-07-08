@@ -27,9 +27,13 @@ app.get('/', (req, res) => {
 app.get('/test', (req, res) => {
   res.json({ message: 'API is working!' });
 });
-app.use('/auth', authRoutes);
-app.use('/layouts', layoutRoutes);
-app.use('/inventory', inventoryRoutes);
+
+const apiRouter = express.Router();
+apiRouter.use('/auth', authRoutes);
+apiRouter.use('/layouts', layoutRoutes);
+apiRouter.use('/inventory', inventoryRoutes);
+
+app.use('/api', apiRouter);
 
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
