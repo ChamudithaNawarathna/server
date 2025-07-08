@@ -29,9 +29,20 @@ app.use('/api/auth', authRoutes);
 app.use('/api/layouts', layoutRoutes);
 app.use('/api/inventory', inventoryRoutes);
 
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
 app.use((err, req, res, next) => {
   console.error('Express error:', err.stack);
   res.status(500).json({ message: 'Something went wrong!' });
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('Unhandled Rejection:', reason);
+});
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught Exception:', err);
 });
 
 // const PORT = process.env.PORT || 5000;
