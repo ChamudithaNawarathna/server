@@ -16,12 +16,20 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to Smart Shopping Cart API' });
 });
-app.get('/api/test', (req, res) => {
+
+// app.get('/api/test', (req, res) => {
+//   res.json({ message: 'API is working!' });
+// });
+// app.use('/api/auth', authRoutes);
+// app.use('/api/layouts', layoutRoutes);
+// app.use('/api/inventory', inventoryRoutes);
+
+app.get('/test', (req, res) => {
   res.json({ message: 'API is working!' });
 });
-app.use('/api/auth', authRoutes);
-app.use('/api/layouts', layoutRoutes);
-app.use('/api/inventory', inventoryRoutes);
+app.use('/auth', authRoutes);
+app.use('/layouts', layoutRoutes);
+app.use('/inventory', inventoryRoutes);
 
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
