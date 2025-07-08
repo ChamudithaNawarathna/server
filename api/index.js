@@ -1,4 +1,3 @@
-const serverless = require('serverless-http');
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('../src/config/db');
@@ -39,5 +38,4 @@ process.on('uncaughtException', (err) => {
   console.error('Uncaught Exception:', err);
 });
 
-module.exports = serverless(app);
-module.exports.default = serverless(app);
+module.exports = app;
