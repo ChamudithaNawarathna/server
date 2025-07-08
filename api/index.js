@@ -40,3 +40,4 @@ process.on('uncaughtException', (err) => {
 });
 
 module.exports = serverless(app);
+module.exports.default = serverless(app);
